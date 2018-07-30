@@ -581,11 +581,12 @@ typedef struct {
 		// ... other fields follow that we are not interested in
 } * plocal_time_info_t;
 
-// Creates a date string using the Windows short date format (eg dd/mm/yy) with 
-// the added feature that 2 digit years are avoided (printed as 4 digits).
+// Should create a date string using the Windows short date format (eg dd/mm/yy) with 
+// the added feature that 2 digit years are avoided (printed as 4 digits). Depended on
+// implementation features that changed. Now returns yyyy-mm-dd.
 CString FormatDate(DATE dd)
 {
-	// First get the short date format from Windows Control Panel Region Settings
+/*	// First get the short date format from Windows Control Panel Region Settings
 	CString fmt;
 	UDATE ud;                              // unpacked date
 	_locale_t ploc = _get_current_locale();
@@ -606,13 +607,13 @@ CString FormatDate(DATE dd)
 		{
 			return CString("Invalid Date");
 		}
-	}
+	}*/
 
 	// Fall back on MS code
 	COleDateTime odt;
 	odt.m_dt = dd;
 	odt.m_status = COleDateTime::valid;
-	return odt.Format("%x");
+	return odt.Format("%Y-%m-%d");
 }
 
 //-----------------------------------------------------------------------------
