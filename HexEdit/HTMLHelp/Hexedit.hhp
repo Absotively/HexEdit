@@ -1,0 +1,24 @@
+[OPTIONS]
+Auto Index=Yes
+Compatibility=1.1 or later
+Compiled file=HexEdit.chm
+Contents file=Hexedit.hhc
+Default Window=Main
+Default topic=Start_Here.htm
+Display compile progress=Yes
+Full-text search=Yes
+Index file=Hexedit.hhk
+Language=0x409 English (United States)
+Title=HexEdit Help
+
+[WINDOWS]
+Main="HexEdit Help","Hexedit.hhc","Hexedit.hhk","Start_Here.htm","Start_Here.htm",,,,,0x2520,,0x3006,[20,316,995,845],1,HHWIN_NAVTYPE_TOC,,,,,0
+
+[FILES]
+Start_Here.htm
+
+[ALIAS]
+#include Hexedit.ali
+
+[INFOTYPES]
+
