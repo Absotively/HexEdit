@@ -2964,7 +2964,7 @@ BOOL CPropRealPage::PreTranslateMessage(MSG* pMsg)
 			val_.TrimRight();
 
 			char *endptr;
-			enum {NORMAL, INF, NINF, NAN} special = NORMAL;
+			enum {NORMAL, INF, NINF, NOTANUMBER} special = NORMAL;
 			double dbl_val = strtod(val_, &endptr);
 
 			if (format_ == FMT_IEEE32 || format_ == FMT_IEEE64)
@@ -2976,7 +2976,7 @@ BOOL CPropRealPage::PreTranslateMessage(MSG* pMsg)
 				else if (strncmp(val_, "-inf", 4) == 0 || dbl_val == -HUGE_VAL)
 					special = NINF;
 				else if (strncmp(val_, "nan", 3) == 0)
-					special = NAN;
+					special = NOTANUMBER;
 			}
 
 			size_t len = 8;
